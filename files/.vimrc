@@ -93,6 +93,9 @@ colorscheme OceanicNext
 
 " Python docstring style
 let g:pydocstring_formatter = 'google'
+let g:pydocstring_doq_path ='/home/braincreator/.local/bin/doq'
+command Docs Pydocstring
+
 
 " Toggle undoTree
 nnoremap <F5> :UndotreeToggle<CR>
