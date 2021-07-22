@@ -100,7 +100,7 @@ nnoremap <F5> :UndotreeToggle<CR>
 " ALE Fixers
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['autopep8', 'isort'],
+\   'python': ['autopep8', 'black'],
 \}
 let g:ale_fix_on_save = 1
 let g:ale_lint_delay = 100
