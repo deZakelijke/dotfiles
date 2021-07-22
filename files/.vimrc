@@ -63,8 +63,8 @@ Plug 'itchyny/lightline.vim'
 " tcomment_vim line commenter
 Plug 'tomtom/tcomment_vim'
 
-" Python-docstring
-Plug 'pixelneo/vim-python-docstring'
+" Pydocstring
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 
 " ALE(Asynchronous Lint Engine)
 Plug 'dense-analysis/ale'
@@ -92,7 +92,7 @@ endif
 colorscheme OceanicNext
 
 " Python docstring style
-let g:python_style = 'google'
+let g:pydocstring_formatter = 'google'
 
 " Toggle undoTree
 nnoremap <F5> :UndotreeToggle<CR>
