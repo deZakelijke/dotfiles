@@ -51,14 +51,11 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Colour scheme
+" Colour schemes
 Plug 'sjl/badwolf'
 Plug 'nightsense/carbonized'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
-
-" Lightline status bar colouring
-Plug 'itchyny/lightline.vim'
 
 " tcomment_vim line commenter
 Plug 'tomtom/tcomment_vim'
@@ -79,8 +76,17 @@ if has("nvim")
     Plug 'nvim-telescope/telescope.nvim'
 endif
 
-" Easymotion
+" Easymotion (not really using this)
 Plug 'easymotion/vim-easymotion'
+
+" Airline git branch indicator
+Plug 'vim-airline/vim-airline'
+
+" Vim fugitive git merge tool
+Plug 'tpope/vim-fugitive'
+
+" Lightline status bar colouring
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -116,3 +122,8 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Lightline color settings
+let g:lightline ={
+    \ 'colorscheme': 'wombat',
+    \ }
