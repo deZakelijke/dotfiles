@@ -32,4 +32,3 @@ export PATH="/opt/pycharm-2020.3.3/bin:$PATH"
 source "$HOME/.cargo/env"
 export VISUAL="nvim"
 
-bash /home/micha/.scripts/keybindings
