@@ -27,13 +27,13 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # set PATH so it includes user's cargo binaries
-if [-d "$HOME/.cargo/bin" ] ; then
+if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+eval `keychain --agents ssh --eval id_rsa`
 
 export PATH="/opt/pycharm-2020.3.3/bin:$PATH"
 
 source "$HOME/.cargo/env"
 export VISUAL="nvim"
-
