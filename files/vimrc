@@ -99,7 +99,7 @@ colorscheme OceanicNext
 
 " Python docstring style
 let g:pydocstring_formatter = 'google'
-let g:pydocstring_doq_path ='/home/braincreator/.local/bin/doq'
+let g:pydocstring_doq_path ='~/.local/bin/doq'
 command Docs Pydocstring
 
 
