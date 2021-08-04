@@ -41,11 +41,6 @@ endif
 " https://github.com/junegunn/vim-plug
 " For NeoVim run:
 " sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-" Add the followign linse to  ~/.config/nvim/init.vim
-"
-" set runtimepath^=~/.vim runtimepath+=~/.vim/after
-" let &packpath&=runtimepath
-" source ~/.vimrc
 "
 " After installation run :PlugInstall
 
@@ -115,7 +110,11 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_delay = 100
 let g:ale_python_pylint_options = "--generate-members"
 let g:ale_python_flake8_options = "--max-line-length=88"
+" ALE Movement keys
+nmap <silent> <F2> <Plug>(ale_previous_wrap)
+nmap <silent> <F3> <Plug>(ale_next_wrap)
 let g:python3_host_prog = "/usr/bin/python3"
+
 
 " Telescope maps
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
