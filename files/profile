@@ -30,10 +30,12 @@ fi
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
+if [ -d "$HOME/.cargo/env" ] ; then
+    source "$HOME/.cargo/env"
+fi
 
 # eval `keychain --agents ssh --eval id_rsa`
 
 export PATH="/opt/pycharm-2020.3.3/bin:$PATH"
 
-source "$HOME/.cargo/env"
 export VISUAL="nvim"
