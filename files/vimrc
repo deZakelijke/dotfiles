@@ -101,15 +101,18 @@ command Docs Pydocstring
 " Toggle undoTree
 nnoremap <F5> :UndotreeToggle<CR>
 
-" ALE Fixers
+" ALE Fixers and Linters
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['autopep8', 'black'],
 \}
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
 let g:ale_fix_on_save = 1
-let g:ale_lint_delay = 100
+let g:ale_lint_delay = 50
 let g:ale_python_pylint_options = "--generate-members"
-let g:ale_python_flake8_options = "--max-line-length=88, --ignore F401"
+let g:ale_python_flake8_options = "--max-line-length=88 --ignore F401 E203"
 " ALE Movement keys
 nmap <silent> <F2> <Plug>(ale_previous_wrap)
 nmap <silent> <F3> <Plug>(ale_next_wrap)
