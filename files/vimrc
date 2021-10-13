@@ -112,7 +112,7 @@ let g:ale_linters = {
 let g:ale_fix_on_save = 1
 let g:ale_lint_delay = 50
 let g:ale_python_pylint_options = "--generate-members"
-let g:ale_python_flake8_options = "--max-line-length=88 --ignore F401 E203"
+let g:ale_python_flake8_options = "--max-line-length=88 --ignore F401,E203"
 " ALE Movement keys
 nmap <silent> <F2> <Plug>(ale_previous_wrap)
 nmap <silent> <F3> <Plug>(ale_next_wrap)
