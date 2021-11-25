@@ -71,6 +71,9 @@ if has("nvim")
     Plug 'nvim-telescope/telescope.nvim'
 endif
 
+" NERDTree file browser
+Plug 'preservim/nerdtree'
+
 " Easymotion (not really using this)
 Plug 'easymotion/vim-easymotion'
 
