@@ -1,3 +1,10 @@
+" Autoamtically reload vimrc when it's saved
+augroup ReloadVimrc
+    au!
+    au BufWritePost .vimrc so ~/.vimrc
+    au BufWritePost ~/repos/dotfilese/vimrc so ~/.vimrc
+augroup end
+
 " Line numbers and tabs
 set number
 set relativenumber
@@ -19,13 +26,17 @@ nmap <CR> o<Esc>k
 inoremap jj <Esc>
 nnoremap <leader>h :noh<CR>
 
-" Move singe line up or down
+" Move singe line  or multiple lines up or down
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Move cursor to middle of screen when moving through search results
+nnoremap n nzz
+nnoremap N Nzz
 
 " Autocompletion
 set wildmenu
@@ -64,13 +75,6 @@ Plug 'dense-analysis/ale'
 " UndoTree
 Plug 'mbbill/undotree'
 
-" Telescope
-if has("nvim")
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-endif
-
 " NERDTree file browser
 Plug 'preservim/nerdtree'
 
@@ -85,6 +89,17 @@ Plug 'tpope/vim-fugitive'
 
 " Lightline status bar colouring
 Plug 'itchyny/lightline.vim'
+
+if has("nvim")
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+
+    " Telescope
+    Plug 'nvim-telescope/telescope.nvim'
+
+    " Harpoon file marker
+    Plug 'ThePrimeagen/harpoon'
+endif
 
 call plug#end()
 
