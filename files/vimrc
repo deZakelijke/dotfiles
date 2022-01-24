@@ -18,12 +18,24 @@ set smartindent
 set noswapfile
 set scrolloff=8
 syntax on
-let mapleader="."
 
-" Remaps
+" Folding
+set foldmethod=indent
+set nofoldenable
+set foldnestmax=10
+set foldlevel=1
+
+" Split window opening
+set splitbelow
+set splitright
+
+" Random remaps
 nnoremap <space> i<space><right><esc>
 nmap <CR> o<Esc>k
 inoremap jj <Esc>
+
+
+let mapleader="."
 nnoremap <leader>h :noh<CR>
 
 " Move singe line  or multiple lines up or down
@@ -37,6 +49,12 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " Move cursor to middle of screen when moving through search results
 nnoremap n nzz
 nnoremap N Nzz
+
+" Easier window navigation
+nnoremap <up> <C-w>k
+nnoremap <down> <C-w>j
+nnoremap <left> <C-w>h
+nnoremap <right> <C-w>l
 
 " Autocompletion
 set wildmenu
@@ -59,7 +77,7 @@ call plug#begin('~/.vim/plugged')
 
 " Colour schemes
 Plug 'sjl/badwolf'
-Plug 'nightsense/carbonized'
+" Plug 'nightsense/carbonized'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
 
@@ -143,7 +161,14 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+" NerdTree maps
+nnoremap <F4> :NERDTreeToggle<CR>
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 " Lightline color settings
 let g:lightline ={
     \ 'colorscheme': 'wombat',
     \ }
+
+" Harpoon maps
+nnoremap <F12> lua require("harpoon.ui").toggle_quick_menu()
