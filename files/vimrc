@@ -150,8 +150,8 @@ let g:ale_lint_delay = 50
 let g:ale_python_pylint_options = "--generate-members"
 let g:ale_python_flake8_options = "--max-line-length=88 --ignore F401,E203,W503"
 " ALE Movement keys
-nmap <silent> <F2> <Plug>(ale_previous_wrap)
-nmap <silent> <F3> <Plug>(ale_next_wrap)
+nmap <silent> <F6> <Plug>(ale_previous_wrap)
+nmap <silent> <F7> <Plug>(ale_next_wrap)
 let g:python3_host_prog = "/usr/bin/python3"
 
 
@@ -162,7 +162,7 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " NerdTree maps
-nnoremap <F4> :NERDTreeToggle<CR>
+nnoremap <F8> :NERDTreeToggle<CR>
 " Close NERDTree if it is the last window
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
