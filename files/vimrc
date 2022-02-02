@@ -81,6 +81,9 @@ Plug 'sjl/badwolf'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
 
+" Cassandra CQL syntax highlighting
+Plug 'elubow/cql-vim'
+
 " tcomment_vim line commenter
 Plug 'tomtom/tcomment_vim'
 
