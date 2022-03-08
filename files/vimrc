@@ -144,6 +144,7 @@ nnoremap <F5> :UndotreeToggle<CR>
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['autopep8', 'black'],
+\   'typescript': ['prettier'],
 \}
 let g:ale_linters = {
 \   'python': ['flake8'],
