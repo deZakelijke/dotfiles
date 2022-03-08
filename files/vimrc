@@ -143,9 +143,9 @@ nnoremap <F5> :UndotreeToggle<CR>
 " ALE Fixers and Linters
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['yarn prettier --write', 'warn run eslint'],
+\   'javascript': ['yarn prettier', 'warn run eslint'],
 \   'python': ['autopep8', 'black'],
-\   'typescript': ['yarn prettier --write', 'warn run eslint'],
+\   'typescript': ['yarn prettier', 'warn run eslint'],
 \}
 let g:ale_linters = {
 \   'python': ['flake8'],
