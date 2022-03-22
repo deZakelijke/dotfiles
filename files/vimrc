@@ -93,6 +93,9 @@ Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 " ALE(Asynchronous Lint Engine)
 Plug 'dense-analysis/ale'
 
+" Poet-v python env integration
+Plug 'petobens/poet-v'
+
 " UndoTree
 Plug 'mbbill/undotree'
 
@@ -135,6 +138,11 @@ colorscheme OceanicNext
 let g:pydocstring_formatter = 'google'
 let g:pydocstring_doq_path ='~/.local/bin/doq'
 command Docs Pydocstring
+
+" Poet-v settings
+let g:poetv_auto_activate = 1
+let g:poetv_executables = ['poetry']
+let g:poetv_set_environment = 1
 
 
 " Toggle undoTree
