@@ -13,6 +13,8 @@ sudo apt install -y \
     curl \
     git \
     make \
+    libssl-dev \
+    libffi-dev \
     build-essential \
     tree \
     cargo \
@@ -20,7 +22,8 @@ sudo apt install -y \
     vim \
     neovim \
     python3 \
-    python3-pip
+    python3-pip \
+    python3.8-venv
 
 # Create vim folders
 mkdir -p ~/.vim/{autoload,colors}
@@ -45,11 +48,11 @@ fi
 curl https://pyenv.run | bash
 pyenv install 3.10.2 && \
     pyenv global 3.10.2
+pip install neovim
 python3 -m pip install --user pipx && \
 python3 -m pipx ensurepath && \
 pipx install \
     poetry \
     doq \
-    neovim \
     black \
     flake8
