@@ -7,7 +7,8 @@ ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_VIMRC=$HOME/.vimrc
 
 # Install basic packager
-sudo apt update && \
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update
 sudo apt install -y \
     wget \
     curl \
