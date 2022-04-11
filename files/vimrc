@@ -96,6 +96,12 @@ Plug 'dense-analysis/ale'
 " Poet-v python env integration
 Plug 'petobens/poet-v'
 
+" Rust Vim syntax highlighting and file detection
+Plug 'rust-lang/rust.vim'
+
+" Vim Toml syntax highlighting
+Plug 'cespare/vim-toml'
+
 " UndoTree
 Plug 'mbbill/undotree'
 
@@ -129,6 +135,7 @@ call plug#end()
 
 " Colourscheme settings
 syntax enable
+filetype plugin indent on
 if has("termguicolors")
     set termguicolors
 endif
@@ -152,16 +159,23 @@ nnoremap <F5> :UndotreeToggle<CR>
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
-\   'python': ['autopep8', 'black'],
+\   'python': ['black'],
+\   'rust': ['rustfmt'],
 \   'typescript': ['prettier', 'eslint'],
 \}
 let g:ale_linters = {
-\   'python': ['flake8'],
+\   'python': ['pylint', 'mypy', 'bandit'],
+\   'rust': ['analyzer'],
 \}
 let g:ale_fix_on_save = 1
 let g:ale_lint_delay = 50
+let g:ale_python_pylint_auto_poetry = 1
 let g:ale_python_pylint_options = "--generate-members"
-let g:ale_python_flake8_options = "--max-line-length=88 --ignore F401,E203,W503"
+let g:ale_python_bandit_auto_poetry = 1
+let g:ale_python_black_auto_poetry = 1
+let g:ale_python_mypy_auto_poetry = 1
+let g:ale_python_mypy_ignore_invalid_syntax = 1
+let g:ale_rust_rls_executable = 'rust-analyzer'
 " ALE Movement keys
 nmap <silent> <F6> <Plug>(ale_previous_wrap)
 nmap <silent> <F7> <Plug>(ale_next_wrap)
