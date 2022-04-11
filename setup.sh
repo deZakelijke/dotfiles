@@ -47,6 +47,7 @@ fi
 
 # Install python tools, linters and fixers
 curl https://pyenv.run | bash
+eval "$(pyenv virtualenv-init -)"
 pyenv install 3.10.2 && \
     pyenv global 3.10.2
 pip install neovim
