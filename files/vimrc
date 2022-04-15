@@ -164,7 +164,7 @@ let g:ale_fixers = {
 \   'typescript': ['prettier', 'eslint'],
 \}
 let g:ale_linters = {
-\   'python': ['pylint', 'mypy', 'bandit'],
+\   'python': ['pylint', 'flake8', 'mypy', 'bandit'],
 \   'rust': ['analyzer'],
 \}
 let g:ale_fix_on_save = 1
@@ -174,6 +174,7 @@ let g:ale_python_pylint_auto_poetry = 1
 let g:ale_python_pylint_options = "--generate-members"
 let g:ale_python_bandit_auto_poetry = 1
 let g:ale_python_black_auto_poetry = 1
+let g:ale_python_flake8_options = "--max-line-length=88 --ignore F401,E203,W503"
 let g:ale_python_mypy_auto_poetry = 1
 let g:ale_python_mypy_ignore_invalid_syntax = 1
 let g:ale_rust_rls_executable = 'rust-analyzer'
