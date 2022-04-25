@@ -7,7 +7,7 @@ ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_VIMRC=$HOME/.vimrc
 
 # Install basic packager
-sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt install -y \
     wget \
@@ -38,23 +38,25 @@ ln -sf "$PWD/files/vimrc" "$ORIGINAL_VIMRC"
 ln -sf "$PWD/files/vimrc" "$HOME/.vim/init.vim"
 
 
+# Install poetry before vim plugins
+
 # Install vim-plug and plugins
 wget -O ~/.config/nvim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-if [ "$1" != 'noplug' ]; then
-    vim +PlugInstall +qall
-fi
+vim +PlugInstall +qall
 
 # Install python tools, linters and fixers
 curl https://pyenv.run | bash
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 pyenv install 3.10.2 && \
     pyenv global 3.10.2
 pip install neovim
 python3 -m pip install --user pipx && \
 python3 -m pipx ensurepath && \
-pipx install \
-    poetry \
-    doq \
-    black \
-    flake8
+# Split this in separate commands
+pipx install poetry
+pipx install doq
+pipx install black
+pipx install flake8
