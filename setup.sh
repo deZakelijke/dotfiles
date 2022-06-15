@@ -52,10 +52,10 @@ eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 pyenv install 3.10.2 && \
     pyenv global 3.10.2
-pip install neovim
 python3 -m pip install --user pipx && \
 python3 -m pipx ensurepath && \
 # Split this in separate commands
+pipx install neovim
 pipx install poetry
 pipx install doq
 pipx install black
