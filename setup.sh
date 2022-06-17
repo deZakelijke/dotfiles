@@ -9,8 +9,8 @@ ORIGINAL_VIMRC=$HOME/.vimrc
 # Install basic packager
 echo "Installing apt packages..."
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
-sudo apt update
-sudo apt install -y \
+sudo apt update \
+    && sudo apt install -y \
     wget \
     curl \
     git \
