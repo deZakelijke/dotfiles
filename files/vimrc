@@ -6,17 +6,25 @@ augroup ReloadVimrc
 augroup end
 
 " Line numbers and tabs
-set number
 set relativenumber
+set number
 set tabstop=4
-set softtabstop=0
+set softtabstop=4
 set expandtab
 set shiftwidth=4
 set smarttab
 set autoindent
 set smartindent
 set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
 set scrolloff=8
+set nohlsearch
+set hidden
+set nowrap
+set colorcolumn=88
+set signcolumn=yes
 syntax on
 
 " Folding
@@ -36,7 +44,6 @@ inoremap jj <Esc>
 
 
 let mapleader="."
-nnoremap <leader>h :noh<CR>
 
 " Move singe line  or multiple lines up or down
 nnoremap <C-j> :m .+1<CR>==
