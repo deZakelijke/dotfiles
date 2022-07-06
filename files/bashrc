@@ -99,7 +99,8 @@ alias open='xdg-open'
 alias gaa="git add ."
 alias gcm="git commit -m"
 alias gc="git checkout"
-alias gpo="git push origin"
+alias gpso="git push origin"
+alias gplo="git pull origin"
 
 # Ripgrep alias to search files
 alias rgf="rg --files | rg"
