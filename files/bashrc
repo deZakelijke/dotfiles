@@ -96,9 +96,10 @@ alias update='sudo apt update'
 alias open='xdg-open'
 
 # Git aliases
-alias gap="git add -p"
+alias gaa="git add ."
 alias gcm="git commit -m"
 alias gc="git checkout"
+alias gpo="git push origin"
 
 # Ripgrep alias to search files
 alias rgf="rg --files | rg"
