@@ -64,7 +64,7 @@ pyenv install 3.10.2 && \
 python3 -m pip install --user pipx && \
 python3 -m pipx ensurepath
 # Split this in separate commands
-pipx install neovim
+pip install neovim
 pipx install doq
 pipx install black
 pipx install flake8
