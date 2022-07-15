@@ -7,7 +7,7 @@ ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_VIMRC=$HOME/.vimrc
 
 # Install basic packager
-echo "Installing apt packages..."
+printf "Installing apt packages..."
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 sudo apt update \
     && sudo apt install -y \
@@ -29,7 +29,7 @@ sudo apt update \
     python3.10-venv
 
 # Create vim folders
-echo "\nLinking config files..."
+printf "\nLinking config files..."
 mkdir -p ~/.vim/{autoload,colors}
 mkdir -p ~/.config
 ln -s ~/.vim ~/.config/nvim
@@ -44,7 +44,7 @@ ln -sf "$PWD/files/vimrc" "$HOME/.vim/init.vim"
 # Install poetry before vim plugins
 
 # Install vim-plug and plugins
-echo "\n Installing vim plugins..."
+printf "\n Installing vim plugins..."
 wget -O ~/.config/nvim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # Has to be run twice for some reason
@@ -52,15 +52,17 @@ vim +PlugInstall +qall
 vim +PlugInstall +qall
 
 # Install python tools, linters and fixers
-echo "\nInstalling python tools..."
+printf "\nInstalling python tools..."
 curl https://pyenv.run | bash
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 pyenv install 3.10.2 && \
     pyenv global 3.10.2
 python3 -m pip install --user pipx && \
-python3 -m pipx ensurepath && \
+python3 -m pipx ensurepath
 # Split this in separate commands
 pipx install neovim
 pipx install doq
