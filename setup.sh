@@ -23,6 +23,7 @@ sudo apt update \
     ripgrep \
     vim \
     neovim \
+    shellcheck \
     python3 \
     python3-pip \
     python3-poetry \
@@ -40,8 +41,6 @@ ln -sf "$PWD/files/profile" "$ORIGINAL_PROFILE"
 ln -sf "$PWD/files/vimrc" "$ORIGINAL_VIMRC"
 ln -sf "$PWD/files/vimrc" "$HOME/.vim/init.vim"
 
-
-# Install poetry before vim plugins
 
 # Install vim-plug and plugins
 printf "\n Installing vim plugins..."
@@ -61,10 +60,8 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 pyenv install 3.10.2 && \
     pyenv global 3.10.2
-python3 -m pip install --user pipx && \
-python3 -m pipx ensurepath
 # Split this in separate commands
 pip install neovim
-pipx install doq
-pipx install black
-pipx install flake8
+pip install doq
+pip install black
+pip install flake8
