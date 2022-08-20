@@ -9,6 +9,7 @@ ORIGINAL_VIMRC=$HOME/.vimrc
 # Install basic packager
 printf "Installing apt packages..."
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
+sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update \
     && sudo apt install -y \
     wget \
@@ -24,10 +25,10 @@ sudo apt update \
     vim \
     neovim \
     shellcheck \
-    python3 \
+    python3.9 \
     python3-pip \
     python3-poetry \
-    python3.10-venv
+    python3.9-venv
 
 # Create vim folders
 printf "\nLinking config files..."
@@ -58,10 +59,11 @@ eval "$(pyenv init --path)"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-pyenv install 3.10.2 && \
-    pyenv global 3.10.2
+pyenv install 3.9.13 && \
+    pyenv global 3.9.13
 # Split this in separate commands
-pip install neovim
-pip install doq
-pip install black
-pip install flake8
+pip3 install neovim
+pip3 install doq
+pip3 install black
+pip3 install flake8
+pip3 install isort
