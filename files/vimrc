@@ -136,6 +136,10 @@ if has("nvim")
 
     " Harpoon file marker
     Plug 'ThePrimeagen/harpoon'
+
+    " Debugger
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'mfussenegger/nvim-dap-python'
 endif
 
 call plug#end()
@@ -198,11 +202,7 @@ nmap <silent> <F7> <Plug>(ale_next_wrap)
 let g:python3_host_prog = "/usr/bin/python3"
 
 
-" Telescope maps
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
 " NerdTree maps
 nnoremap <F8> :NERDTreeToggle<CR>
@@ -210,36 +210,27 @@ nnoremap <F8> :NERDTreeToggle<CR>
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Lightline color settings
-let g:lightline ={
-    \ 'colorscheme': 'wombat',
-    \ }
+let g:lightline = {
+\   'colorscheme': 'wombat',
+\}
 
-" Harpoon maps
 if has("nvim")
+    " Telescope maps and settings
+    nnoremap <leader>ff <cmd>Telescope find_files<cr>
+    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+    nnoremap <leader>fb <cmd>Telescope buffers<cr>
+
+    " Harpoon maps and settings
     lua require("telescope").load_extension('harpoon')
     nnoremap <leader>fm <cmd>Telescope harpoon marks<CR>
-    lua vim.api.nvim_set_keymap('n',
-\      '<leader>a',
-\      "<cmd>lua require('harpoon.mark').add_file()<CR>",
-\      {noremap = true})
-    lua vim.api.nvim_set_keymap('n',
-\      '<C-e>',
-\      "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
-\      {noremap = true})
-    lua vim.api.nvim_set_keymap('n',
-\       '<F1>',
-\       "<cmd>lua require('harpoon.ui').nav_file(1)<CR>",
-\       {noremap = true})
-    lua vim.api.nvim_set_keymap('n',
-\       '<F2>',
-\       "<cmd>lua require('harpoon.ui').nav_file(2)<CR>",
-\       {noremap = true})
-    lua vim.api.nvim_set_keymap('n',
-\       '<F3>',
-\       "<cmd>lua require('harpoon.ui').nav_file(3)<CR>",
-\       {noremap = true})
-    lua vim.api.nvim_set_keymap('n',
-\       '<F4>',
-\       "<cmd>lua require('harpoon.ui').nav_file(4)<CR>",
-\       {noremap = true})
+    nnoremap <silent> <leader>a <Cmd>lua require'harpoon.ui'.add_file()<CR>
+    nnoremap <silent> <C-e> <Cmd>lua require'harpoon.ui'.toggle_quick_menu()<CR>
+    nnoremap <silent> <F1> <Cmd>lua require'harpoon.ui'.nav_file(1)<CR>
+    nnoremap <silent> <F2> <Cmd>lua require'harpoon.ui'.nav_file(2)<CR>
+    nnoremap <silent> <F3> <Cmd>lua require'harpoon.ui'.nav_file(3)<CR>
+    nnoremap <silent> <F4> <Cmd>lua require'harpoon.ui'.nav_file(4)<CR>
+
+    " DAP maps and settings
+    lua require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+    nnoremap <silent> <F9> <Cmd>lua require'dap'.continue()<CR>
 endif
