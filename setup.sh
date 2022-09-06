@@ -19,6 +19,8 @@ sudo apt update \
     libssl-dev \
     libffi-dev \
     build-essential \
+    zlib1g-dev \
+    llvm \
     tree \
     cargo \
     ripgrep \
@@ -27,7 +29,6 @@ sudo apt update \
     shellcheck \
     python3.9 \
     python3-pip \
-    python3-poetry \
     python3.9-venv
 
 # Create vim folders
@@ -49,6 +50,7 @@ wget -O ~/.config/nvim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # Has to be run twice for some reason
 vim +PlugInstall +qall
+sleep(5)
 vim +PlugInstall +qall
 
 # Install python tools, linters and fixers
@@ -62,6 +64,7 @@ eval "$(pyenv virtualenv-init -)"
 pyenv install 3.9.13 && \
     pyenv global 3.9.13
 # Split this in separate commands
+pip3 install poetry
 pip3 install neovim
 pip3 install doq
 pip3 install black
