@@ -64,9 +64,4 @@ eval "$(pyenv virtualenv-init -)"
 pyenv install 3.9.13 && \
     pyenv global 3.9.13
 # Split this in separate commands
-pip3 install poetry
-pip3 install neovim
-pip3 install doq
-pip3 install black
-pip3 install flake8
-pip3 install isort
+pip3 install poetry neovim doq black pylint isort

@@ -180,7 +180,7 @@ let g:ale_linters = {
 \   'bash': ['shellcheck'],
 \   'html': ['prettier'],
 \   'javascript': ['prettier', 'eslint'],
-\   'python': ['pylint', 'flake8', 'mypy'],
+\   'python': ['pylint', 'mypy'],
 \   'rust': ['analyzer'],
 \}
 let g:ale_fix_on_save = 1
@@ -191,8 +191,7 @@ let g:ale_python_pylint_auto_poetry = 1
 let g:ale_python_pylint_options = "--generate-members"
 let g:ale_python_bandit_auto_poetry = 1
 let g:ale_python_black_auto_poetry = 1
-let g:ale_python_black_auto_isort = 1
-let g:ale_python_flake8_options = "--max-line-length=88 --ignore F401,E203,W503"
+let g:ale_python_isort_auto_poetry = 1
 let g:ale_python_mypy_auto_poetry = 1
 let g:ale_python_mypy_ignore_invalid_syntax = 1
 let g:ale_rust_rls_executable = 'rust-analyzer'
