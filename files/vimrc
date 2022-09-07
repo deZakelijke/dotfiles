@@ -222,7 +222,7 @@ if has("nvim")
     " Harpoon maps and settings
     lua require("telescope").load_extension('harpoon')
     nnoremap <leader>fm <cmd>Telescope harpoon marks<CR>
-    nnoremap <silent> <leader>a <Cmd>lua require'harpoon.ui'.add_file()<CR>
+    nnoremap <silent> <leader>a <Cmd>lua require'harpoon.mark'.add_file()<CR>
     nnoremap <silent> <C-e> <Cmd>lua require'harpoon.ui'.toggle_quick_menu()<CR>
     nnoremap <silent> <F1> <Cmd>lua require'harpoon.ui'.nav_file(1)<CR>
     nnoremap <silent> <F2> <Cmd>lua require'harpoon.ui'.nav_file(2)<CR>
