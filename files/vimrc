@@ -150,7 +150,7 @@ filetype plugin indent on
 if has("termguicolors")
     set termguicolors
 endif
-colorscheme OceanicNext
+silent! colorscheme OceanicNext
 
 " Python docstring style
 let g:pydocstring_formatter = 'google'
@@ -193,7 +193,6 @@ let g:ale_python_bandit_auto_poetry = 1
 let g:ale_python_black_auto_poetry = 1
 let g:ale_python_isort_auto_poetry = 1
 let g:ale_python_mypy_auto_poetry = 1
-let g:ale_python_mypy_ignore_invalid_syntax = 1
 let g:ale_rust_rls_executable = 'rust-analyzer'
 " ALE Movement keys
 nmap <silent> <F6> <Plug>(ale_previous_wrap)

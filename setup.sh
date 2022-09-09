@@ -7,9 +7,9 @@ ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_VIMRC=$HOME/.vimrc
 
 # Install basic packager
-printf "Installing apt packages..."
+printf "\nInstalling apt packages...\n"
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
-sudo add-apt-repository ppa:deadsnakes/ppa
+sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt update \
     && sudo apt install -y \
     wget \
@@ -32,7 +32,7 @@ sudo apt update \
     python3.9-venv
 
 # Create vim folders
-printf "\nLinking config files..."
+printf "\nLinking config files...\n"
 mkdir -p ~/.vim/{autoload,colors}
 mkdir -p ~/.config
 ln -s ~/.vim ~/.config/nvim
@@ -45,16 +45,16 @@ ln -sf "$PWD/files/vimrc" "$HOME/.vim/init.vim"
 
 
 # Install vim-plug and plugins
-printf "\n Installing vim plugins..."
+printf "\n Installing vim plugins...\n"
 wget -O ~/.config/nvim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # Has to be run twice for some reason
 vim +PlugInstall +qall
-sleep(5)
+sleep 5
 vim +PlugInstall +qall
 
 # Install python tools, linters and fixers
-printf "\nInstalling python tools..."
+printf "\nInstalling python tools...\n"
 curl https://pyenv.run | bash
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
