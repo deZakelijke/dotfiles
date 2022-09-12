@@ -182,6 +182,7 @@ let g:ale_linters = {
 \   'javascript': ['prettier', 'eslint'],
 \   'python': ['pylint', 'mypy'],
 \   'rust': ['analyzer'],
+\   'sh': ['shellcheck'],
 \}
 let g:ale_fix_on_save = 1
 let g:ale_lint_delay = 50

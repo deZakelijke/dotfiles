@@ -48,10 +48,7 @@ ln -sf "$PWD/files/vimrc" "$HOME/.vim/init.vim"
 printf "\n Installing vim plugins...\n"
 wget -O ~/.config/nvim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-# Has to be run twice for some reason
-vim +PlugInstall +qall
-sleep 5
-vim +PlugInstall +qall
+nvim --headless +PlugInstall +qall
 
 # Install python tools, linters and fixers
 printf "\nInstalling python tools...\n"
