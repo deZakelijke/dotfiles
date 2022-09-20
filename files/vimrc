@@ -140,6 +140,10 @@ if has("nvim")
     " Debugger
     Plug 'mfussenegger/nvim-dap'
     Plug 'mfussenegger/nvim-dap-python'
+
+    " Treesitter
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter-context'
 endif
 
 call plug#end()
