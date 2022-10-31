@@ -43,6 +43,11 @@ ln -sf "$PWD/files/profile" "$ORIGINAL_PROFILE"
 ln -sf "$PWD/files/vimrc" "$ORIGINAL_VIMRC"
 ln -sf "$PWD/files/vimrc" "$HOME/.vim/init.vim"
 
+# Install vim-plug and plugins
+printf "\n Installing vim plugins...\n"
+wget -O ~/.config/nvim/autoload/plug.vim \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim --headless +PlugInstall +qall
 
 # Install python tools, linters and fixers
 printf "\nInstalling python tools...\n"
@@ -56,9 +61,3 @@ pyenv install 3.9.13 && \
     pyenv global 3.9.13
 # Split this in separate commands
 pip3 install poetry neovim doq black pylint isort
-
-# Install vim-plug and plugins
-printf "\n Installing vim plugins...\n"
-wget -O ~/.config/nvim/autoload/plug.vim \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim --headless +PlugInstall +qall
