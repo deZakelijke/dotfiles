@@ -53,9 +53,12 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-" Move cursor to middle of screen when moving through search results
+" Move cursor to middle of screen when moving through search results and
+" jumping
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 
 " Easier window navigation
 nnoremap <up> <C-w>k
@@ -159,7 +162,7 @@ silent! colorscheme OceanicNext
 " Python docstring style
 let g:pydocstring_formatter = 'google'
 let g:pydocstring_doq_path ='~/.local/bin/doq'
-command Docs Pydocstring
+" command Docs Pydocstring
 
 " Poet-v settings
 let g:poetv_auto_activate = 1
