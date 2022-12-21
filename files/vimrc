@@ -130,6 +130,9 @@ Plug 'tpope/vim-fugitive'
 " Lightline status bar colouring
 Plug 'itchyny/lightline.vim'
 
+" Jedi-vim bindings for Jedi
+Plug 'davidhalter/jedi-vim'
+
 if has("nvim")
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
@@ -194,6 +197,7 @@ let g:ale_linters = {
 let g:ale_fix_on_save = 1
 let g:ale_lint_delay = 50
 let g:ale_linters_explicit = 1
+let g:ale_completion_enbled=1
 let g:ale_python_auto_poetry = 1
 let g:ale_python_pylint_auto_poetry = 1
 let g:ale_python_pylint_options = "--generate-members"
