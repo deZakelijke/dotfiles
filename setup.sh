@@ -15,6 +15,7 @@ sudo apt update \
     wget \
     curl \
     git \
+    htop \
     make \
     libssl-dev \
     libffi-dev \
@@ -29,7 +30,8 @@ sudo apt update \
     shellcheck \
     python3.9 \
     python3-pip \
-    python3.9-venv
+    python3.9-venv \
+    poetry
 
 # Create vim folders
 printf "\nLinking config files...\n"
@@ -60,4 +62,4 @@ eval "$(pyenv virtualenv-init -)"
 pyenv install 3.9.13 && \
     pyenv global 3.9.13
 # Split this in separate commands
-pip3 install poetry neovim doq black pylint isort
+pip3 install neovim doq black pylint isort
