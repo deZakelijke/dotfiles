@@ -16,3 +16,5 @@ Make python link to python3
 
 Yubikey:
 https://support.yubico.com/hc/en-us/articles/360016649099-Ubuntu-Linux-Login-Guide-U2F
+
+Make separate python setup with recent versions, dev packages, poetry, etc...
