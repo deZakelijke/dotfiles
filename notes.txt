@@ -1,6 +1,5 @@
 
 Apt repos:
-sudo add-apt-repository ppa:neovim-ppa/unstable
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 Apt packages:
@@ -10,11 +9,11 @@ nvidia-cuda-toolkit
 openvpn
 libpam-u2f
 
-./google-chrome-stable_current_amd64.deb
-
-Make python link to python3
 
 Yubikey:
 https://support.yubico.com/hc/en-us/articles/360016649099-Ubuntu-Linux-Login-Guide-U2F
 
-Make separate python setup with recent versions, dev packages, poetry, etc...
+ DevOps stuff:
+  - aws cli
+  - kubectl
+  - k9s: https://github.com/derailed/k9s/releases

@@ -9,7 +9,6 @@ ORIGINAL_VIMRC=$HOME/.vimrc
 # Install basic packager
 printf "\nInstalling apt packages...\n"
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
-sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt update \
     && sudo apt install -y \
     wget \
@@ -27,11 +26,7 @@ sudo apt update \
     ripgrep \
     vim \
     neovim \
-    shellcheck \
-    python3.9 \
-    python3-pip \
-    python3.9-venv \
-    poetry
+    shellcheck
 
 # Create vim folders
 printf "\nLinking config files...\n"
@@ -51,15 +46,19 @@ wget -O ~/.config/nvim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim --headless +PlugInstall +qall
 
-# Install python tools, linters and fixers
-printf "\nInstalling python tools...\n"
-curl https://pyenv.run | bash
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-pyenv install 3.9.13 && \
-    pyenv global 3.9.13
-# Split this in separate commands
-pip3 install neovim doq black pylint isort
+# Read --with arguments
+while [ $# -gt 0 ] ; do
+    case $1 in
+        -w | --with) WITH+=("$2") ;;
+    esac
+    shift
+done
+
+# Execute additionally passed setups
+for FILE in "${WITH[@]}"; do
+    if [ -f "./scripts/${FILE}_setup.sh" ]; then
+        "./scripts/${FILE}_setup.sh"
+    else
+        echo "The file ./${FILE}_setup.sh does not exist. Skipping"
+    fi
+done
