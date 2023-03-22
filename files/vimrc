@@ -124,9 +124,6 @@ Plug 'easymotion/vim-easymotion'
 " Airline git branch indicator
 Plug 'vim-airline/vim-airline'
 
-" Vim fugitive git merge tool
-Plug 'tpope/vim-fugitive'
-
 " Lightline status bar colouring
 Plug 'itchyny/lightline.vim'
 
@@ -150,6 +147,9 @@ if has("nvim")
     " Treesitter
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-treesitter/nvim-treesitter-context'
+
+    " Lazygit from withing Neovim
+    Plug 'kdheepak/lazygit.nvim'
 endif
 
 call plug#end()
@@ -164,7 +164,7 @@ silent! colorscheme OceanicNext
 
 " Python docstring style
 let g:pydocstring_formatter = 'google'
-let g:pydocstring_doq_path ='~/.local/bin/doq'
+let g:pydocstring_doq_path ='~/.pyenv/shims/doq'
 " command Docs Pydocstring
 
 " Poet-v settings
@@ -212,8 +212,6 @@ nmap <silent> <F7> <Plug>(ale_next_wrap)
 let g:python3_host_prog = "/usr/bin/python3"
 
 
-
-
 " NerdTree maps
 nnoremap <F8> :NERDTreeToggle<CR>
 " Close NERDTree if it is the last window
@@ -223,6 +221,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 let g:lightline = {
 \   'colorscheme': 'wombat',
 \}
+
 
 if has("nvim")
     " Telescope maps and settings
@@ -243,4 +242,13 @@ if has("nvim")
     " DAP maps and settings
     lua require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
     nnoremap <silent> <F9> <Cmd>lua require'dap'.continue()<CR>
+
+    " Lazygit maps and settings
+    let g:lazygit_floating_window_winblend = 1.0 " transparency of floating window
+    let g:lazygit_floating_window_use_plenary = 1 " use plenary.nvim to manage floating window if available
+    nnoremap <silent> <leader>gg :LazyGit<cr>
+    lua require('telescope').load_extension('lazygit')
+    nnoremap <silent> <leader>flg <Cmd>lua require("telescope").extensions.lazygit.lazygit()<CR>
+
+
 endif
