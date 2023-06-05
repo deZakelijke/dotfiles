@@ -7,6 +7,9 @@ sudo apt update \
     libsqlite3-dev \
     libncurses-dev \
     libreadline-dev \
+    lzma \
+    liblzma-dev \
+    libbz2-dev \
     python3.9 \
     python3-pip \
     python3.9-venv \
