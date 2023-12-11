@@ -145,7 +145,7 @@ if has("nvim")
     Plug 'mfussenegger/nvim-dap-python'
 
     " Treesitter
-    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUupdate'}
     Plug 'nvim-treesitter/nvim-treesitter-context'
 
     " Lazygit from withing Neovim
@@ -190,7 +190,7 @@ let g:ale_linters = {
 \   'bash': ['shellcheck'],
 \   'html': ['prettier'],
 \   'javascript': ['prettier', 'eslint'],
-\   'python': ['pylint', 'mypy'],
+\   'python': ['pylint', 'mypy', 'pyright'],
 \   'rust': ['analyzer'],
 \   'sh': ['shellcheck'],
 \}
@@ -201,9 +201,11 @@ let g:ale_completion_enbled=1
 let g:ale_python_auto_poetry = 1
 let g:ale_python_pylint_auto_poetry = 1
 let g:ale_python_pylint_options = "--errors-only"
+let g:ale_python_pyright_auto_poetry = 1
 let g:ale_python_bandit_auto_poetry = 1
 let g:ale_python_black_auto_poetry = 1
 let g:ale_python_isort_auto_poetry = 1
+let g:ale_python_isort_options = '--profile black -l 88'
 let g:ale_python_mypy_auto_poetry = 1
 let g:ale_rust_rls_executable = 'rust-analyzer'
 " ALE Movement keys
