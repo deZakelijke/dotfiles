@@ -93,6 +93,7 @@ alias open='xdg-open'
 alias du='du -h'
 alias df='df -h'
 alias nvi='nvim'
+alias docker-killall='docker kill $(docker ps -q); docker rm $(docker ps -aq)'
 
 # Git aliases
 alias gaa="git add ."
