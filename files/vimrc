@@ -130,6 +130,9 @@ Plug 'itchyny/lightline.vim'
 " Jedi-vim bindings for Jedi
 Plug 'davidhalter/jedi-vim'
 
+" Copilot
+Plug 'github/copilot.vim'
+
 if has("nvim")
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
