@@ -10,6 +10,8 @@ function ColorMyPencils(color)
 		vim.g.oceanic_next_terminal_bold = 1
 		vim.g.oceanic_next_terminal_italic = 1
 	end
+
+	vim.cmd("let g:airline#extensions#poetv#enabled = 1")
 end
 
 ColorMyPencils()
