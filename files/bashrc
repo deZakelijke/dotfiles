@@ -87,7 +87,7 @@ fi
 alias ll='ls -alFh --group-directories-first'
 alias la='ls -A --group-directories-first'
 alias l='ls -CF --group-directories-first'
-alias geef='sudo apt install'
+alias geef='sudo apt install -y'
 alias update='sudo apt update'
 alias open='xdg-open'
 alias du='du -h'
@@ -99,6 +99,7 @@ alias docker-killall='docker kill $(docker ps -q); docker rm $(docker ps -aq)'
 alias gaa="git add ."
 alias gcm="git commit -m"
 alias gc="git checkout"
+alias git-fuck-it="git add -f * && git commit -m \"fuck it\" && git push -f origin master"
 
 # Ripgrep alias to search files
 alias rgf="rg --files | rg"
