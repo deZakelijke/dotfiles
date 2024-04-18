@@ -96,6 +96,9 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Auto formatting
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("jay-babu/mason-null-ls.nvim")
+
+	use("heavenshell/vim-pydocstring", { run = "make install" })
 end)
