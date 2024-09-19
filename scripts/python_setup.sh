@@ -10,9 +10,9 @@ sudo apt update \
     lzma \
     liblzma-dev \
     libbz2-dev \
-    python3.9 \
+    python3.10 \
     python3-pip \
-    python3.9-venv \
+    python3.10-venv \
     poetry
 
 curl https://pyenv.run | bash
@@ -21,15 +21,11 @@ eval "$(pyenv init --path)"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-pyenv install 3.9.13 && \
-    pyenv global 3.9.13
+pyenv install 3.10 && \
+    pyenv global 3.10
 
 pip3 install \
     neovim \
     doq \
-    black \
-    pylint \
-    isort \
     pre-commit \
-    pysqlite3 \
-    gnureadline
+    pysqlite3
