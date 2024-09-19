@@ -40,6 +40,10 @@ tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 rm lazygit lazygit.tar.gz
 
+# Copy neovim config
+printf "\nCopying neovim config...\n"
+git clone https://github.com/deZakelijke/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+
 # Read --with arguments
 while [ $# -gt 0 ] ; do
     case $1 in
