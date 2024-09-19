@@ -12,8 +12,7 @@ sudo apt update \
     libbz2-dev \
     python3.10 \
     python3-pip \
-    python3.10-venv \
-    poetry
+    python3.10-venv
 
 curl https://pyenv.run | bash
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -25,6 +24,7 @@ pyenv install 3.10 && \
     pyenv global 3.10
 
 pip3 install \
+    poetry \
     neovim \
     doq \
     pre-commit \
