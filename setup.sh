@@ -4,7 +4,6 @@ set -u
 
 ORIGINAL_BASHRC=$HOME/.bashrc
 ORIGINAL_PROFILE=$HOME/.profile
-ORIGINAL_VIMRC=$HOME/.vimrc
 
 # Install basic packager
 printf "\nInstalling apt packages...\n"
@@ -25,20 +24,14 @@ sudo apt update \
     cargo \
     ripgrep \
     vim \
-    neovim \
-    shellcheck
+    neovim
 
 # Create vim folders
 printf "\nLinking config files...\n"
-mkdir -p ~/.vim/{autoload,colors}
 mkdir -p ~/.config
-ln -s ~/.vim ~/.config/nvim
-
 
 ln -sf "$PWD/files/bashrc" "$ORIGINAL_BASHRC"
 ln -sf "$PWD/files/profile" "$ORIGINAL_PROFILE"
-ln -sf "$PWD/files/vimrc" "$ORIGINAL_VIMRC"
-ln -sf "$PWD/files/vimrc" "$HOME/.vim/init.vim"
 
 # Download and install lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
@@ -46,12 +39,6 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/lates
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 rm lazygit lazygit.tar.gz
-
-# Install vim-plug and plugins
-printf "\n Installing vim plugins...\n"
-wget -O ~/.config/nvim/autoload/plug.vim \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim --headless +PlugInstall +qall
 
 # Read --with arguments
 while [ $# -gt 0 ] ; do
