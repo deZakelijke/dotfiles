@@ -31,11 +31,13 @@ sudo apt update \
 # Create vim folders
 printf "\nLinking config files...\n"
 mkdir -p ~/.config
+mkdir -p ~/.local/bin
 
 ln -sf "$PWD/files/bashrc" "$ORIGINAL_BASHRC"
 ln -sf "$PWD/files/profile" "$ORIGINAL_PROFILE"
 
 # Install Kitty
+printf "\nInstalling kitty...\n"
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 # Create symbolic links to add kitty and kitten to PATH (assuming ~/.local/bin is in
 # your system-wide PATH)
@@ -50,7 +52,7 @@ sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.loca
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
 echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 # Create a sybolic link to the kitty config directory in this repo
-ln -s '$PWD/files/kitty' ~/.config/kitty
+ln -s "${PWD}/files/kitty" ~/.config
 
 # Download and install lazygit
 printf "\nInstalling lazygit...\n"
