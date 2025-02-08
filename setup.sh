@@ -33,6 +33,15 @@ printf "\nLinking config files...\n"
 mkdir -p ~/.config
 mkdir -p ~/.local/bin
 
+# Install CommitMono Nerd Font
+printf "\nInstalling CommitMono Nerd Font...\n"
+curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/CommitMono.zip -o CommitMono.zip
+sudo unzip CommitMono.zip -d /usr/share/fonts
+fc-cache -f -v
+rm CommitMono.zip
+sudo rm /usr/share/fonts/README.md
+sudo rm /usr/share/fonts/LICENSE
+
 ln -sf "$PWD/files/bashrc" "$ORIGINAL_BASHRC"
 ln -sf "$PWD/files/profile" "$ORIGINAL_PROFILE"
 
