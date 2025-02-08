@@ -24,7 +24,9 @@ sudo apt update \
     cargo \
     ripgrep \
     vim \
-    neovim
+    neovim \
+    powerline \
+    fonts-powerline
 
 # Create vim folders
 printf "\nLinking config files...\n"
