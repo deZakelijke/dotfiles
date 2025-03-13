@@ -9,23 +9,12 @@ sudo apt update \
     libreadline-dev \
     lzma \
     liblzma-dev \
-    libbz2-dev \
-    python3.10 \
-    python3-pip \
-    python3.10-venv
+    libbz2-dev 
 
-curl https://pyenv.run | bash
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-pyenv install 3.10 && \
-    pyenv global 3.10
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv python install 3.10
 
-pip3 install \
-    poetry \
+pip install \
     neovim \
-    doq \
     pre-commit \
     pysqlite3
