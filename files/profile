@@ -36,8 +36,11 @@ fi
 # eval `keychain --agents ssh --eval id_rsa`
 
 if [ -d "$HOME/minio-binaries/" ] ; then
-	PATH="$HOME/minio-binaries/:$PATH"
+    PATH="$HOME/minio-binaries/:$PATH"
 fi
+
+# k9s config
+export XDG_CONFIG_HOME="$HOME/.config";
 
 export VISUAL="nvim"
 . "$HOME/.cargo/env"
