@@ -12,6 +12,7 @@ sudo apt update \
     && sudo apt install -y \
     wget \
     curl \
+    build-essential \
     git \
     htop \
     make \
@@ -21,12 +22,18 @@ sudo apt update \
     zlib1g-dev \
     llvm \
     tree \
-    cargo \
     ripgrep \
     vim \
     neovim \
     powerline \
-    fonts-powerline
+    fonts-powerline \
+    libclang-dev \
+    fd-find
+# Install latest version of Node.js
+sudo npm install n -g && sudo n stable
+# Install Cargo and Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
 
 # Create vim folders
 printf "\nLinking config files...\n"
@@ -61,6 +68,7 @@ sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.loca
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
 echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 # Create a sybolic link to the kitty config directory in this repo
+# TODO: remove old config/kitty
 ln -s "${PWD}/files/kitty" ~/.config
 
 # Download and install lazygit
