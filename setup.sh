@@ -87,8 +87,8 @@ sudo npm install -g n
 
 # Copy neovim config
 printf "\nCopying neovim config...\n"
-# TODO: remove `$HOME/.config/nvim` if it exists
-git clone https://github.com/deZakelijke/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+rm -rf ~/.config/nvim
+git clone https://github.com/deZakelijke/kickstart.nvim.git ~/.config/nvim
 
 # Read --with arguments
 while [ $# -gt 0 ] ; do
