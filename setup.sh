@@ -28,6 +28,7 @@ sudo apt update \
     powerline \
     fonts-powerline \
     libclang-dev \
+    imagemagick \
     fd-find
 # Install latest version of Node.js
 sudo npm install n -g && sudo n stable
@@ -68,7 +69,7 @@ sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.loca
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
 echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 # Create a sybolic link to the kitty config directory in this repo
-# TODO: remove old config/kitty
+rm -rf ~/.config/kitty?
 ln -s "${PWD}/files/kitty" ~/.config
 
 # Download and install lazygit
